@@ -1,6 +1,6 @@
 <% if signed_in? %>
   <p>
-    You currently follow <strong><%= @user.friends_count %></strong> people. Here are some of your recent friends:
+    You currently follow <strong><%= pluralize(@user.friends_count, 'person') %></strong>. Here some beautiful pictures of your recent friends:
   </p>
   <ul>
   <% @friends.each do |friend| %>
