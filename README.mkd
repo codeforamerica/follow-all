@@ -1,30 +1,9 @@
-TwitterApp
+Follow All
 ==========
-TwitterApp is a very basic Rails 3 application that demonstrates how to use the
-[Sign in with Twitter](http://dev.twitter.com/pages/sign_in_with_twitter)
-workflow with version 1.0 of the [twitter
-gem](https://github.com/jnunemaker/twitter/) (which has removed built-in OAuth
-support).
+Follow All is an app that allows you to enter any Twitter list and then follow all the members of that list.
 
-Installation
-------------
-    git clone git://github.com/jnunemaker/twitter-app.git
-    cd twitter-app
-    bundle install
+A (hopefully) working version of the app lives at http://follow-all.heroku.com/ and uses the following gems:
 
-Usage
------
-Using TwitterApp requires you to [register an app with
-Twitter](http://dev.twitter.com/apps) to obtain OAuth credentials. Once you
-obtain credentials, substitute your consumer key and secret into the command
-below.
-
-    CONSUMER_KEY=xyz CONSUMER_SECRET=123 rails server
-
-OmniAuth
---------
-There is an [omniauth
-branch](https://github.com/jnunemaker/twitter-app/tree/omniauth) that
-demonstrates integration with the [omniauth
-gem](https://github.com/intridea/omniauth) instead of the [oauth
-gem](https://github.com/oauth/oauth-ruby).
+* [rails](https://github.com/rails/rails)
+* [twitter](https://github.com/jnunemaker/twitter)
+* [oauth](https://github.com/oauth/oauth-ruby)
