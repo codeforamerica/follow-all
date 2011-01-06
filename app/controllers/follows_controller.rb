@@ -21,13 +21,17 @@ class FollowsController < ApplicationController
       until cursor == 0
         list_members = client.list_members(user, list, :cursor => cursor)
         list_members.users.threaded_map do |list_member|
-          # This is where we skip already-followed list members
-          next if friends.include?(list_member.id)
-          # Also, you can't follow yourself, silly
-          next if @user.id == list_member.id
-          # If we made it this far, follow the list member
-          client.follow(list_member.id)
-          num_new_friends += 1
+          begin
+            # This is where we skip already-followed list members
+            next if friends.include?(list_member.id)
+            # Also, you can't follow yourself, silly
+            next if @user.id == list_member.id
+            # If we made it this far, follow the list member
+            client.follow(list_member.id)
+            num_new_friends += 1
+          rescue Twitter::ServiceUnavailable
+            retry
+          end
         end
         cursor = list_members.next_cursor
       end
