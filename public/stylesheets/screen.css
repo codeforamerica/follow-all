@@ -11,6 +11,10 @@ li {
   display: inline;
 }
 
+form {
+  margin-top: 10px;
+}
+
 #notice {
   background: #bfffbf;
   border: 1px solid #24ff24;
