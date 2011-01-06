@@ -1,4 +1,4 @@
-TwitterApp::Application.routes.draw do
+FollowAll::Application.routes.draw do
   get 'sessions/callback', :to => 'sessions#callback', :as => :callback
   resources :sessions
   resources :follows
