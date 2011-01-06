@@ -1,14 +1,17 @@
 <% if signed_in? %>
-  <h3>
-    Hi <%= link_to(@user.name, @user.url) %>!
-  </h3>
   <p>
-    You're currently following <strong><%= @user.friends_count %></strong> people!
+    You currently follow <strong><%= @user.friends_count %></strong> people. Here are some of your recent friends:
   </p>
+  <ul>
+  <% @friends.each do |friend| %>
+    <li><%= image_tag("http://img.tweetimag.es/i/#{friend.screen_name}_m", :alt => friend.name).html_safe %></li>
+  <% end %>
+  </ul>
   <%= form_tag('/follows', :method => :post) do %>
     <%= label_tag 'list', 'Enter a Twitter list:'%>
     @<%= text_field_tag 'list', 'sferik/code-for-america', :size => 32 %>
-    <%= submit_tag 'Follow all members of this list!' %>
+    <%= submit_tag 'Follow all members of this list!', :name => 'follow' %>
+    <%= label_tag 'follow', 'Note: This may take a few seconds to process, especially if you have a lot of friends.' %>
   <% end %>
   <%= form_tag('/sessions/destroy', :method => :delete) do %>
     <%= submit_tag 'Sign out' %>
