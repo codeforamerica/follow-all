@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
-  before_filter :get_user_from_session, :only => [:new]
 
   def new
+    @user = client.user(session[:screen_name]) if signed_in?
   end
 
   def create

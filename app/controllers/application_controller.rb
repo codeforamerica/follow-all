@@ -23,14 +23,6 @@ class ApplicationController < ActionController::Base
   end
   helper_method :client
 
-  def get_user_from_session
-    if signed_in?
-      @user = client.user(session[:screen_name])
-    else
-      return redirect_to(:controller => :sessions, :action => :new)
-    end
-  end
-
   def force_sign_in(exception)
     reset_session
     flash[:error] = "It seems your credentials are not good anymore. Please sign in again."
