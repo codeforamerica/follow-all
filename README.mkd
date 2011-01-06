@@ -1,9 +1,14 @@
 Follow All
 ==========
-Follow All is an app that allows you to enter any Twitter list and then follow all the members of that list.
+Follow All is a simple Rails app that allows you to enter the name of any
+public Twitter list and then, with the press of a button, follow all the
+members of that list.
 
-A (hopefully) working version of the app lives at http://follow-all.heroku.com/ and uses the following gems:
+A (hopefully) working version of the app lives at
+### <http://follow-all.heroku.com/>
 
-* [rails](https://github.com/rails/rails)
+Dependencies
+------------
+The app uses the following gems:
 * [twitter](https://github.com/jnunemaker/twitter)
 * [oauth](https://github.com/oauth/oauth-ruby)
