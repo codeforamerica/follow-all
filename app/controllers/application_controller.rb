@@ -1,4 +1,5 @@
 require 'twitter/authentication_helpers'
+require 'yaml'
 
 class ApplicationController < ActionController::Base
   include Twitter::AuthenticationHelpers
@@ -8,13 +9,13 @@ class ApplicationController < ActionController::Base
   private
 
   def oauth_consumer
-    @oauth_consumer ||= OAuth::Consumer.new(ENV['CONSUMER_KEY'], ENV['CONSUMER_SECRET'], :site => 'http://api.twitter.com', :request_endpoint => 'http://api.twitter.com', :sign_in => true)
+    @oauth_consumer ||= OAuth::Consumer.new(configuration[:consumer_key], configuration[:consumer_secret], :site => 'http://api.twitter.com', :request_endpoint => 'http://api.twitter.com', :sign_in => true)
   end
 
   def client
     Twitter.configure do |config|
-      config.consumer_key = ENV['CONSUMER_KEY']
-      config.consumer_secret = ENV['CONSUMER_SECRET']
+      config.consumer_key = configuration[:consumer_key]
+      config.consumer_secret = configuration[:consumer_secret]
       config.oauth_token = session['access_token']
       config.oauth_token_secret = session['access_secret']
     end
@@ -26,5 +27,13 @@ class ApplicationController < ActionController::Base
     reset_session
     flash[:error] = "It seems your credentials are not good anymore. Please sign in again."
     redirect_to new_session_path
+  end
+
+  def configuration
+    YAML.load(File.read(config_file))
+  end
+
+  def config_file
+    File.join(::Rails.root.to_s, "config", "twitter.yaml")
   end
 end
