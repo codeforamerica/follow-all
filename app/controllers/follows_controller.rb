@@ -29,6 +29,9 @@ class FollowsController < ApplicationController
             # If we made it this far, follow the list member
             client.follow(list_member.id)
             num_new_friends += 1
+          rescue Twitter::Forbidden
+            # This error will be raised if @user doesn't have permission to
+            # follow list_member, for whatever reason. Just ignore it.
           rescue Twitter::ServiceUnavailable
             retry
           end
