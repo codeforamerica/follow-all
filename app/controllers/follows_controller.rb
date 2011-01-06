@@ -4,14 +4,14 @@ class FollowsController < ApplicationController
 
   def create
     if signed_in?
-      @user = client.user(session[:screen_name])
+      @user = client.user
 
       # Find all of @user's friends, so we don't attempt to re-follow people
       # @user already follows (or @user herself)
       ids_to_skip = [@user.id]
       cursor = -1
       until cursor == 0
-        friend_ids = client.friend_ids(@user.id, :cursor => cursor)
+        friend_ids = client.friend_ids(:cursor => cursor)
         ids_to_skip += friend_ids.ids
         cursor = friend_ids.next_cursor
       end

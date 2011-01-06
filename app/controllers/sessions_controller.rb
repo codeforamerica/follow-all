@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
   def new
     if signed_in?
-      @user = client.user(session[:screen_name])
+      @user = client.user
       @friends = client.friends(session[:screen_name], :count => 20).users
     end
   end
