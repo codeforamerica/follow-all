@@ -7,12 +7,12 @@ class FollowsController < ApplicationController
       @user = client.user
 
       # Find all of @user's friends, so we don't attempt to re-follow people
-      # @user already follows (or @user herself)
-      ids_to_skip = [@user.id]
+      # @user already follows
+      friends = []
       cursor = -1
       until cursor == 0
         friend_ids = client.friend_ids(:cursor => cursor)
-        ids_to_skip += friend_ids.ids
+        friends += friend_ids.ids
         cursor = friend_ids.next_cursor
       end
       user, list = params[:list].split('/')
@@ -21,7 +21,11 @@ class FollowsController < ApplicationController
       until cursor == 0
         list_members = client.list_members(user, list, :cursor => cursor)
         list_members.users.threaded_map do |list_member|
-          next if ids_to_skip.include?(list_member.id)
+          # This is where we skip already-followed list members
+          next if friends.include?(list_member.id)
+          # Also, you can't follow yourself, silly
+          next if @user.id == list_member.id
+          # If we made it this far, follow the list member
           client.follow(list_member.id)
           num_new_friends += 1
         end
