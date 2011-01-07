@@ -9,7 +9,7 @@
   </ul>
   <%= form_tag('/follows', :method => :post) do %>
     <%= label_tag 'list', 'Enter a Twitter list:'%>
-    @<%= text_field_tag 'list', 'sferik/code-for-america', :size => 24 %>
+    @<%= text_field_tag 'list', 'codeforamerica/fellows-2011', :size => 28 %>
     <%= submit_tag 'Follow all members of this list!', :name => 'follow' %>
     <%= label_tag 'follow', 'Note: This may take a few seconds to process, especially if you have a lot of friends.' %>
   <% end %>
