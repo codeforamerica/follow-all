@@ -2,7 +2,7 @@ require 'twitter'
 require 'threaded_map'
 
 def config_file
-  File.join(::Rails.root.to_s, "config", "twitter.yaml")
+  File.join(::Rails.root.to_s, 'config', 'twitter.yaml')
 end
 
 def configuration
@@ -20,8 +20,7 @@ task :cron => :environment do
   client = Twitter::Client.new
 
   user = 'codeforamerica'
-  year = Time.now.year
-  ["staff", "fellows-#{year}"].each do |list|
+  ["staff", "fellows-#{Time.now.year}"].each do |list|
     cursor = -1
     until cursor == 0
       list_members = client.list_members(user, list, :cursor => cursor)
