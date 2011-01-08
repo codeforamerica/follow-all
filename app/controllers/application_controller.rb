@@ -13,13 +13,13 @@ class ApplicationController < ActionController::Base
   end
 
   def client
-    Twitter.configure do |config|
-      config.consumer_key = configuration[:consumer_key]
-      config.consumer_secret = configuration[:consumer_secret]
-      config.oauth_token = session['access_token']
-      config.oauth_token_secret = session['access_secret']
-    end
-    @client ||= Twitter::Client.new
+    @config ||= {
+      :consumer_key => configuration[:consumer_key],
+      :consumer_secret => configuration[:consumer_secret],
+      :oauth_token => session[:oauth_token],
+      :oauth_token_secret => session[:oauth_token_secret],
+    }
+    @client ||= Twitter::Client.new(@config)
   end
   helper_method :client
 
@@ -29,11 +29,11 @@ class ApplicationController < ActionController::Base
     redirect_to new_session_path
   end
 
-  def configuration
-    YAML.load(File.read(config_file))
-  end
-
   def config_file
     File.join(::Rails.root.to_s, "config", "twitter.yaml")
+  end
+
+  def configuration
+    YAML.load(File.read(config_file))
   end
 end

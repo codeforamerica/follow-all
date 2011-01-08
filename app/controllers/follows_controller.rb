@@ -31,8 +31,9 @@ class FollowsController < ApplicationController
             num_new_friends += 1
           rescue Twitter::Forbidden
             # This error will be raised if @user doesn't have permission to
-            # follow list_member, for whatever reason. Just ignore it.
+            # follow list_member, for whatever reason.
           rescue Twitter::ServiceUnavailable
+            # This error will be raised if Twitter is temporarily unavailable.
             retry
           end
         end
