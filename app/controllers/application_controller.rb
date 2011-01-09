@@ -13,13 +13,14 @@ class ApplicationController < ActionController::Base
   end
 
   def client
-    config = {
-      :consumer_key => configuration[:consumer_key],
-      :consumer_secret => configuration[:consumer_secret],
-      :oauth_token => session[:oauth_token],
-      :oauth_token_secret => session[:oauth_token_secret],
-    }
-    @client ||= Twitter::Client.new(config)
+    Twitter.configure do |config|
+      config.consumer_key = configuration[:consumer_key]
+      config.consumer_secret = configuration[:consumer_secret]
+      config.oauth_token = session[:oauth_token]
+      config.oauth_token_secret = session[:oauth_token_secret]
+    end
+
+    @client ||= Twitter::Client.new
   end
   helper_method :client
 
