@@ -20,7 +20,7 @@ task :cron => :environment do
   client = Twitter::Client.new
 
   user = 'codeforamerica'
-  ["staff", "fellows-#{Time.now.year}"].each do |list|
+  ["bod", "staff", "fellows-#{Time.now.year}"].each do |list|
     cursor = -1
     until cursor == 0
       list_members = client.list_members(user, list, :cursor => cursor)
