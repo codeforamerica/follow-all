@@ -1,5 +1,8 @@
 require 'twitter'
 require 'threaded_map'
+require 'logger'
+logger = Logger.new(STDOUT)
+logger.level = Logger::DEBUG
 
 def config_file
   File.join(::Rails.root.to_s, 'config', 'twitter.yaml')
@@ -26,7 +29,11 @@ task :cron => :environment do
       list_members = client.list_members(user, list, :cursor => cursor)
       list_members.users.threaded_map do |list_member|
         begin
-          next if client.is_list_member?(user, "team", list_member.id)
+          if client.is_list_member?(user, "team", list_member.id)
+            logger.debug "Skipping #{list_member.name} (id: #{list_member.id})"
+            next
+          end
+          logger.debug "Adding #{list_member.name} (id: #{list_member.id})"
           client.list_add_member(user, "team", list_member.id)
         rescue Twitter::Forbidden
           # This error will be raised if the authenticated user doesn't have
