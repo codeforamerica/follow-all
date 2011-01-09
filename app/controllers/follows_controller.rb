@@ -49,9 +49,9 @@ class FollowsController < ApplicationController
         else
           "You are now following #{num_new_friends} new people!"
         end
+      rescue Twitter::BadRequest
+        flash[:notice] = "You have been rate-limited by Twitter. Please try again in an hour."
       end
-    rescue Twitter::BadRequest
-      flash[:notice] = "You have been rate-limited by Twitter. Please try again in an hour."
     end
     redirect_to(:controller => :sessions, :action => :new)
   end
