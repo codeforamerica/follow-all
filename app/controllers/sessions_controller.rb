@@ -2,8 +2,12 @@ class SessionsController < ApplicationController
 
   def new
     if signed_in?
-      @user = client.user
-      @friends = client.friends(session[:screen_name], :count => 20).users
+      begin
+        @user = client.user
+        @friends = client.friends(session[:screen_name], :count => 20).users
+      rescue Twitter::BadRequest
+        flash[:notice] = "You have been rate-limited by Twitter. Please try again in an hour."
+      end
     end
   end
 
