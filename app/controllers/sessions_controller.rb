@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
         client = Client.new(session)
         @user = User.new(client)
       rescue Twitter::BadRequest
-        flash[:notice] = "You have been rate-limited by Twitter. Please try again in an hour."
+        flash.now[:notice] = "You have been rate-limited by Twitter. Please try again in an hour."
       end
       render 'sessions/authenticated'
     else

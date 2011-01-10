@@ -6,9 +6,9 @@ class FollowsController < ApplicationController
         client = Client.new(session)
         @user = User.new(client)
         @new_friends = @user.follow_list(*params[:list].split('/'))
-        flash[:notice] = "You are already following everyone on this list." if @new_friends.size.zero?
+        flash.now[:notice] = "You are already following everyone on this list." if @new_friends.size.zero?
       rescue Twitter::BadRequest
-        flash[:notice] = "You have been rate-limited by Twitter. Please try again in an hour."
+        flash.now[:notice] = "You have been rate-limited by Twitter. Please try again in an hour."
       end
       render 'sessions/authenticated'
     else
