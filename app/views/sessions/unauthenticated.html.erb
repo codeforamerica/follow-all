@@ -1,0 +1,13 @@
+<p>
+  Follow All is a simple Twitter app that allows you to enter the name of any 
+  public list on Twitter and then, with a single press of a button, follow all
+  the members of that list.
+</p>
+<p>
+  To get started, you'll need to authenticate with Twitter by pressing the
+  button below.
+</p>
+
+<%= form_tag('/sessions') do %>
+  <%= image_submit_tag("sign-in-with-twitter.png") %>
+<% end %>
