@@ -31,10 +31,10 @@ task :cron => :environment do
         begin
           if client.is_list_member?(user, "team", list_member.id)
             logger.debug "Skipping #{list_member.name} (id: #{list_member.id})"
-            next
+          else
+            logger.debug "Adding #{list_member.name} (id: #{list_member.id})"
+            client.list_add_member(user, "team", list_member.id)
           end
-          logger.debug "Adding #{list_member.name} (id: #{list_member.id})"
-          client.list_add_member(user, "team", list_member.id)
         rescue Twitter::Forbidden
           # This error will be raised if the authenticated user doesn't have
           # permission to add the member to the list, for whatever reason.
