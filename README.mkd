@@ -1,8 +1,7 @@
 Follow All
 ==========
-Follow All is a simple Twitter app that allows you to enter the name of any
-public list on Twitter and then, with a single press of a button, follow all
-the members of that list.
+Follow All allows you to enter the name of any public Twitter list and follow
+all the members of that list.
 
 A (hopefully) working version of the app lives at
 # <http://follow-all.heroku.com/> #
