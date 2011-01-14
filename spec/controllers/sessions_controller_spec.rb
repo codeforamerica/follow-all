@@ -11,8 +11,8 @@ describe SessionsController do
     it "should redirect to twitter authorization url" do
       get :create
       
-      session['request_token'].should == 't'
-      session['request_secret'].should == 's'
+      session[:request_token].should == 't'
+      session[:request_secret].should == 's'
       response.location.should =~ /api.twitter.com/
     end
   end
@@ -26,8 +26,8 @@ describe SessionsController do
     it "should authenticate with twitter" do
       get :callback, :oauth_verifier => 'some_key'
       
-      session['access_token'].should == 'at'
-      session['access_secret'].should == 'as'
+      session[:oauth_token].should == 'at'
+      session[:oauth_token_secret].should == 'as'
       session[:screen_name].should == 'felipeelias'
       response.should be_redirect
     end
@@ -37,7 +37,7 @@ describe SessionsController do
     it "should logout and destroy all sessions" do
       delete :destroy, :id => "id"
       
-      ['access_token', 'access_secret', :screen_name].each do |sess|
+      [:access_token, :access_secret, :screen_name].each do |sess|
         session[sess].should be_nil
       end
     end
