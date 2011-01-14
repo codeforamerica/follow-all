@@ -4,7 +4,7 @@
   </p>
   <ul>
   <% @new_friends.each do |friend| %>
-    <li><%= image_tag("http://img.tweetimag.es/i/#{friend.screen_name}_m", :alt => friend.name).html_safe %></li>
+    <li><%= image_tag("http://img.tweetimag.es/i/#{friend.screen_name}_b", :alt => friend.name, :title => friend.name).html_safe %></li>
   <% end %>
   </ul>
 <% end %>
