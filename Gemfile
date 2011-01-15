@@ -5,7 +5,7 @@ gem 'oauth', '~> 0.4.4'
 gem 'twitter', '~> 1.1.0'
 gem 'sqlite3-ruby', :require => 'sqlite3'
 
-group :test, :development do
+group :test do
   gem 'rspec'
   gem 'rspec-rails'
   gem 'webmock'
