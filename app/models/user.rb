@@ -13,32 +13,12 @@ class User
     @friends = client.friends(options).users
   end
 
-  def friend_ids
-    @friend_ids = []
-    cursor = -1
-    until cursor == 0
-      begin
-        friends = client.friend_ids(:cursor => cursor)
-        @friend_ids += friends.ids
-        cursor = friends.next_cursor
-      rescue Twitter::ServiceUnavailable
-        # This error will be raised if Twitter is temporarily unavailable.
-        retry
-      end
-    end
-    @friend_ids
-  end
-
   def follow_list(user, list)
     new_friends = []
     cursor = -1
     until cursor == 0
       list_members = client.list_members(user, list, :cursor => cursor)
       list_members.users.threaded_map do |list_member|
-        # Skip already-followed list members.
-        next if friend_ids.include?(list_member.id)
-        # You can't follow yourself, silly.
-        next if id == list_member.id
         begin
           # If we made it this far, follow the list member.
           client.follow(list_member.id)
