@@ -1,6 +1,5 @@
 require File.expand_path('../boot', __FILE__)
 
-# require 'action_controller/railtie'
 require 'rails/all'
 
 # If you have a Gemfile, require the gems listed there, including any gems

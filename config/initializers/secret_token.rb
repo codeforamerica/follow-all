@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-FollowAll::Application.config.secret_token = 'ddfa145fe4dafc1aa25ccb36f6ca1027252c0a165e518e7e33807620593d1525ea4196f52efe99658137fdc22134dc5005287f8fba82b3e965f9a0cbe8b4a1de'
+FollowAll::Application.config.secret_token = 'a212025661e3357c7eb124b39818fa605d501079761d2721e9a754b30179a067decdb5c5554fe995d08928529bb697f9106511b81cbbc04844fc089a04d4c7b2'
