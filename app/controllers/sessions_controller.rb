@@ -1,39 +1,25 @@
 class SessionsController < ApplicationController
+  def create
+    session[:access_token] = request.env['omniauth.auth']['credentials']['token']
+    session[:access_secret] = request.env['omniauth.auth']['credentials']['secret']
+    redirect_to show_path, :notice => "Signed in with Twitter!"
+  end
 
-  def new
-    if signed_in?
-      begin
-        client = Client.new(session)
-        @user = User.new(client)
-      rescue Twitter::BadRequest
-        flash.now[:notice] = "You have been rate-limited by Twitter. Please try again in an hour."
-      end
-      render 'sessions/authenticated'
+  def show
+    if session['access_token'] && session['access_secret']
+      @user = client.user
     else
-      render 'sessions/unauthenticated'
+      redirect_to failure_path
     end
   end
 
-  def create
-    request_token = Consumer.new.get_request_token(:oauth_callback => callback_url)
-    session[:request_token] = request_token.token
-    session[:request_secret] = request_token.secret
-    redirect_to request_token.authorize_url
+  def error
+    flash[:error] = "Sign in with Twitter failed!"
+    redirect_to root_path
   end
 
   def destroy
     reset_session
-    redirect_to new_session_path
-  end
-
-  def callback
-    request_token = OAuth::RequestToken.new(Consumer.new, session[:request_token], session[:request_secret])
-    access_token = request_token.get_access_token(:oauth_verifier => params[:oauth_verifier])
-    reset_session
-    session[:oauth_token] = access_token.token
-    session[:oauth_token_secret] = access_token.secret
-    user = Client.new(session).verify_credentials
-    sign_in(user)
-    redirect_back_or root_path
+    redirect_to root_path, :notice => "Signed out!"
   end
 end

@@ -4,21 +4,13 @@ require 'logger'
 logger = Logger.new(STDOUT)
 logger.level = Logger::DEBUG
 
-def config_file
-  File.join(::Rails.root.to_s, 'config', 'twitter.yaml')
-end
-
-def configuration
-  YAML.load(File.read(config_file))
-end
-
 desc "Automatically merge the staff and fellows Twitter lists into the team list"
 task :cron => :environment do
   Twitter.configure do |config|
-    config.consumer_key = configuration[:consumer_key]
-    config.consumer_secret = configuration[:consumer_secret]
-    config.oauth_token = configuration[:oauth_token]
-    config.oauth_token_secret = configuration[:oauth_token_secret]
+    config.consumer_key = ENV['CONSUMER_KEY']
+    config.consumer_secret = ENV['CONSUMER_SECRET']
+    config.oauth_token = ENV['OAUTH_TOKEN']
+    config.oauth_token_secret = ENV['OAUTH_TOKEN_SECRET']
   end
   client = Twitter::Client.new
 

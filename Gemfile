@@ -1,13 +1,24 @@
 source 'http://rubygems.org'
 
-gem 'rails', '~> 3.0.7'
-gem 'oauth', '~> 0.4.4'
-gem 'twitter', '~> 1.4.0'
-gem 'sqlite3', '~> 1.3.3'
+gem 'rails', '3.1.0.beta1'
+gem 'haml'
+gem 'oa-oauth'
+gem 'sass'
+gem 'twitter'
+
+platforms :jruby do
+  gem 'jruby-openssl', '~> 0.7'
+end
+
+group :production do
+  gem 'pg'
+  gem 'therubyracer-heroku', '0.8.1.pre3', :platforms => :ruby
+end
 
 group :test do
-  gem 'rspec'
-  gem 'rspec-rails'
+  gem 'ZenTest'
+  gem 'mocha'
+  gem 'simplecov'
+  gem 'turn', :require => false
   gem 'webmock'
-  gem 'webrat'
 end

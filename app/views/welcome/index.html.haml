@@ -1,12 +1,8 @@
-<p>
+%p
   Follow All allows you to enter the name of any public Twitter list and follow
   all the members of that list.
-</p>
-<p>
+%p
   To get started, you'll need to authenticate with Twitter by pressing the
   button below.
-</p>
-
-<%= form_tag('/sessions') do %>
-  <%= image_submit_tag("sign-in-with-twitter.png") %>
-<% end %>
+= form_tag "/auth/twitter", :method => 'get' do
+  = image_submit_tag "sign-in-with-twitter.png", :name => "commit", :value => "Sign in"

@@ -1,0 +1,16 @@
+!!! 5
+%html
+  %head
+    %title
+      Follow All
+    = stylesheet_link_tag "application"
+    = csrf_meta_tags
+  %body
+    - if flash[:notice]
+      %p{:id => "notice"}
+        = flash[:notice]
+    - if flash[:error]
+      %p{:id => "error"}
+        = flash[:error]
+    = image_tag("code-for-america.png", :alt => "Code for America")
+    = yield
