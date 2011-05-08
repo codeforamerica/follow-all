@@ -4,9 +4,9 @@
     %strong
       = pluralize @new_friends.size, 'new person'
   %ul
-  - @new_friends.each do |friend|
-    %li
-      = image_tag("http://img.tweetimag.es/i/#{friend.screen_name}_b", :alt => friend.name)
+    - @new_friends.each do |friend|
+      %li
+        = image_tag("http://img.tweetimag.es/i/#{friend.screen_name}_b", :alt => friend.name)
 = form_tag '/follows', :method => 'post' do
   = label_tag 'list', 'Enter a Twitter list: @'
   = text_field_tag 'list', 'codeforamerica/team', :size => 20
