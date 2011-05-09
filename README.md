@@ -66,3 +66,8 @@ Submitting a Pull Request
 5. Run <tt>bundle exec rake test</tt>. If your changes are not 100% covered, go back to step 4.
 6. Commit and push your changes.
 7. Submit a pull request. Please do not include changes to the gemspec or version file. (If you want to create your own version for some reason, please do so in a separate commit.)
+
+Copyright
+---------
+Copyright (c) 2011 Code for America.
+See [LICENSE](https://github.com/codeforamerica/follow-all/blob/master/LICENSE.md) for details.
