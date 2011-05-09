@@ -1,8 +1,4 @@
 - if @new_friends && @new_friends.size > 0
-  %p
-    You are now following
-    %strong
-      = pluralize @new_friends.size, 'new person'
   %ul
     - @new_friends.each do |friend|
       %li

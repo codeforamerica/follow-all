@@ -15,6 +15,7 @@ class FollowsControllerTest < ActionController::TestCase
     post :create, :list => "codeforamerica/team"
     assert_not_nil assigns :user
     assert_not_nil assigns :new_friends
+    assert_equal 'You are now following 20 new people.', flash[:notice]
     assert_response :success
     assert_select 'title', 'Follow All'
     assert_select 'ul li', :count => 20
