@@ -30,3 +30,20 @@ obtain credentials, substitute your consumer key and secret into the command
 below.
 
     CONSUMER_KEY=abc CONSUMER_SECRET=123 rails server
+
+Contributing
+------------
+In the spirit of [free software](http://www.fsf.org/licensing/essays/free-sw.html), **everyone** is encouraged to help improve this project.
+
+Here are some ways *you* can contribute:
+
+* by using alpha, beta, and prerelease versions
+* by reporting bugs
+* by suggesting new features
+* by writing or editing documentation
+* by writing specifications
+* by writing code (**no patch is too small**: fix typos, add comments, clean up inconsistent whitespace)
+* by refactoring code
+* by closing [issues](https://github.com/codeforamerica/follow-all/issues)
+* by reviewing patches
+* [financially](https://secure.codeforamerica.org/page/contribute)
