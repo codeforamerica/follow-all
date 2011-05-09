@@ -3,6 +3,10 @@ Follow All
 Follow All allows you to enter the name of any public Twitter list and follow
 all the members of that list.
 
+Screenshot
+----------
+![Follow All](https://github.com/codeforamerica/follow-all/raw/master/screenshot.png "Follow All")
+
 Continuous Integration
 ----------------------
 [![Build Status](http://travis-ci.org/codeforamerica/follow-all.png)](http://travis-ci.org/codeforamerica/follow-all)
