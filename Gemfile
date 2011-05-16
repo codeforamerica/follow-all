@@ -12,7 +12,14 @@ end
 
 group :production do
   gem 'pg'
-  gem 'therubyracer-heroku', '0.8.1.pre3', :platforms => :ruby
+
+  platforms :ruby do
+    gem 'therubyracer-heroku', '0.8.1.pre3'
+  end
+
+  platforms :jruby do
+    gem 'therubyrhino', '~> 1.72'
+  end
 end
 
 group :test do
