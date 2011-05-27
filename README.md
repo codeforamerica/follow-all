@@ -71,3 +71,5 @@ Copyright
 ---------
 Copyright (c) 2011 Code for America.
 See [LICENSE](https://github.com/codeforamerica/follow-all/blob/master/LICENSE.md) for details.
+
+[![Code for America Tracker](http://stats.codeforamerica.org/codeforamerica/follow-all.png)](http://stats.codeforamerica.org/projects/follow-all)
