@@ -14,7 +14,7 @@ Continuous Integration
 Demo
 ----
 You can see a running version of the application at
-[http://follow-all.heroku.com](http://follow-all.heroku.com).
+[http://follow-all.herokuapp.com](http://follow-all.herokuapp.com).
 
 Installation
 ------------
