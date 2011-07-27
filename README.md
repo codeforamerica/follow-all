@@ -9,7 +9,7 @@ Screenshot
 
 Continuous Integration
 ----------------------
-[![Build Status](http://travis-ci.org/codeforamerica/follow-all.png)](http://travis-ci.org/codeforamerica/follow-all)
+[![Build Status](https://secure.travis-ci.org/codeforamerica/follow-all.png)](http://travis-ci.org/codeforamerica/follow-all)
 
 Demo
 ----
