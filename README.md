@@ -6,7 +6,7 @@ all the members of that list.
 ![Follow All](https://github.com/codeforamerica/follow-all/raw/master/screenshot.png "Follow All")
 
 ## <a name="ci">Continuous Integration</a>
-[![Build Status](https://secure.travis-ci.org/codeforamerica/follow-all.png)](http://travis-ci.org/codeforamerica/follow-all)
+[![Build Status](https://travis-ci.org/codeforamerica/follow-all.png)](http://travis-ci.org/codeforamerica/follow-all)
 
 ## <a name="demo">Demo</a>
 You can see a running version of the application at
