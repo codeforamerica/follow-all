@@ -6,7 +6,7 @@ class User
   def initialize(client)
     @client = client
     user = client.user
-    @id = user[:id]
+    @id = user.id
   end
 
   def friends(options={:count => 20})

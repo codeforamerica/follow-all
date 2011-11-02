@@ -11,7 +11,7 @@ class FollowsController < ApplicationController
         else
           flash.now[:notice] = "You are now following #{@new_friends.size} new people."
         end
-      rescue Twitter::BadRequest
+      rescue Twitter::Error::BadRequest
         flash.now[:notice] = "You have been rate-limited by Twitter. Please try again in an hour."
       end
       render 'sessions/show'
