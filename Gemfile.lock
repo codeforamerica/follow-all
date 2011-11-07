@@ -122,7 +122,7 @@ GEM
       twitter-text (~> 1.4)
     twitter-text (1.4.13)
       activesupport
-    tzinfo (0.3.30)
+    tzinfo (0.3.31)
     webmock (1.7.7)
       addressable (~> 2.2, > 2.2.5)
       crack (>= 0.1.7)
