@@ -10,6 +10,11 @@ all the members of that list.
 
 [ci]: http://travis-ci.org/codeforamerica/follow-all
 
+## <a name="dependencies"></a>Dependency Status
+[![Dependency Status](https://gemnasium.com/codeforamerica/follow-all.png)][gemnasium]
+
+[gemnasium]: https://gemnasium.com/codeforamerica/follow-all
+
 ## <a name="demo"></a>Demo
 You can see a running version of the application at
 [http://follow-all.herokuapp.com][demo].
