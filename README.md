@@ -11,7 +11,7 @@ all the members of that list.
 [ci]: http://travis-ci.org/codeforamerica/follow-all
 
 ## <a name="dependencies"></a>Dependency Status
-[![Dependency Status](https://gemnasium.com/codeforamerica/follow-all.png)][gemnasium]
+[![Dependency Status](https://gemnasium.com/codeforamerica/follow-all.png?travis)][gemnasium]
 
 [gemnasium]: https://gemnasium.com/codeforamerica/follow-all
 
