@@ -5,10 +5,10 @@ all the members of that list.
 ## <a name="screenshots"></a>Screenshot
 ![Follow All](https://github.com/codeforamerica/follow-all/raw/master/screenshot.png "Follow All")
 
-## <a name="ci"></a>Continuous Integration
-[![Build Status](https://secure.travis-ci.org/codeforamerica/follow-all.png)][ci]
+## <a name="build"></a>Build Status
+[![Build Status](https://secure.travis-ci.org/codeforamerica/follow-all.png?branch=master)][travis]
 
-[ci]: http://travis-ci.org/codeforamerica/follow-all
+[travis]: http://travis-ci.org/codeforamerica/follow-all
 
 ## <a name="dependencies"></a>Dependency Status
 [![Dependency Status](https://gemnasium.com/codeforamerica/follow-all.png?travis)][gemnasium]
@@ -82,7 +82,7 @@ bug report should include a pull request with failing specs.
    please do so in a separate commit.)
 
 ## <a name="versions"></a>Supported Ruby Versions
-This library aims to support and is [tested against][ci] the following Ruby
+This library aims to support and is [tested against][travis] the following Ruby
 implementations:
 
 * Ruby 1.8.7
