@@ -5,7 +5,7 @@
         = image_tag("http://img.tweetimag.es/i/#{friend.screen_name}_b", :alt => friend.name)
 = form_tag '/follows', :method => 'post' do
   = label_tag 'list', 'Enter a Twitter list: @'
-  = text_field_tag 'list', 'codeforamerica/team', :size => 20
+  = select_tag 'list', options_for_select([['codeforamerica/team','codeforamerica/team'],['codeforamerica/fellows-2012', 'codeforamerica/fellows-2012'],['codeforamerica/fellows-2011', 'codeforamerica/fellows-2011']])
   = submit_tag 'Follow all members of this list!', :name => 'follow'
   = label_tag 'follow', 'Note: This may take a few seconds to process.'
 = form_tag signout_path, :method => 'delete' do
