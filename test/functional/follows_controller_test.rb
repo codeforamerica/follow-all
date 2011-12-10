@@ -23,9 +23,7 @@ class FollowsControllerTest < ActionController::TestCase
       assert_select '[action=?]', '/follows'
       assert_select '[method=?]', 'post'
     end
-    assert_select 'input[name="list"]' do
-      assert_select '[type=?]', 'text'
-      assert_select '[size=?]', 20
+    assert_select 'select[name="list"]' do
       assert_select '[value=?]', 'codeforamerica/team'
     end
     assert_select 'input[name="follow"]' do
