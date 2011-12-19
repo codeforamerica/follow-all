@@ -10,6 +10,11 @@ platforms :jruby do
   gem 'jruby-openssl'
 end
 
+group :assets do
+  gem 'sass-rails'
+  gem 'uglifier'
+end
+
 group :production do
   gem 'pg'
   gem 'thin'

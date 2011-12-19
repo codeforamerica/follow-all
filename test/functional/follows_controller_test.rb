@@ -18,7 +18,7 @@ class FollowsControllerTest < ActionController::TestCase
     assert_equal 'You are now following 20 new people.', flash[:notice]
     assert_response :success
     assert_select 'title', 'Follow All'
-    assert_select 'ul li', :count => 20
+    assert_select 'ul.media-grid li', :count => 20
     assert_select 'form' do
       assert_select '[action=?]', '/follows'
       assert_select '[method=?]', 'post'
@@ -26,22 +26,7 @@ class FollowsControllerTest < ActionController::TestCase
     assert_select 'select[name="list"]' do
       assert_select '[value=?]', 'codeforamerica/team'
     end
-    assert_select 'input[name="follow"]' do
-      assert_select '[type=?]', 'submit'
-      assert_select '[value=?]', 'Follow all members of this list!'
-    end
-    assert_select 'form' do
-      assert_select '[action=?]', '/signout'
-      assert_select '[method=?]', 'post'
-    end
-    assert_select 'input[name="_method"]' do
-      assert_select '[type=?]', 'hidden'
-      assert_select '[value=?]', 'delete'
-    end
-    assert_select 'input[name="commit"]' do
-      assert_select '[type=?]', 'submit'
-      assert_select '[value=?]', 'Sign out'
-    end
+    assert_select 'button', 'Follow all members of this list!'
   end
 
   test 'should redirect to failure path when unauthenticated' do

@@ -1,12 +1,16 @@
-- if @new_friends && @new_friends.size > 0
-  %ul
-    - @new_friends.each do |friend|
-      %li
-        = image_tag("http://img.tweetimag.es/i/#{friend.screen_name}_b", :alt => friend.name)
-= form_tag '/follows', :method => 'post' do
-  = label_tag 'list', 'Enter a Twitter list: @'
-  = select_tag 'list', options_for_select([['codeforamerica/team','codeforamerica/team'],['codeforamerica/fellows-2012', 'codeforamerica/fellows-2012'],['codeforamerica/fellows-2011', 'codeforamerica/fellows-2011'],['codeforamerica/staff','codeforamerica/staff'],])
-  = submit_tag 'Follow all members of this list!', :name => 'follow'
-  = label_tag 'follow', 'Note: This may take a few seconds to process.'
-= form_tag signout_path, :method => 'delete' do
-  = submit_tag 'Sign out'
+.row
+  .span14
+    - if @new_friends && @new_friends.size > 0
+      %ul.media-grid
+        - @new_friends.each do |friend|
+          %li
+            %a{:href => friend.url}
+              %img.thumbnail{:src => "https://api.twitter.com/1/users/profile_image?screen_name=#{friend.screen_name}&size=bigger", :alt => friend.name}
+    = form_tag('/follows', :method => 'post') do
+      %p
+        Select a Twitter list:
+      = select_tag('list', options_for_select([['codeforamerica/team','codeforamerica/team'],['codeforamerica/fellows-2012', 'codeforamerica/fellows-2012'],['codeforamerica/fellows-2011', 'codeforamerica/fellows-2011'],['codeforamerica/staff','codeforamerica/staff'],]))
+      %button.btn
+        Follow all members of this list!
+      %small
+        Note: This may take a few seconds to process.

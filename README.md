@@ -1,6 +1,6 @@
 # Follow All [![Build Status](https://secure.travis-ci.org/codeforamerica/follow-all.png?branch=master)][travis] [![Dependency Status](https://gemnasium.com/codeforamerica/follow-all.png?travis)][gemnasium]
-Follow All allows you to enter the name of any public Twitter list and follow
-all the members of that list.
+Follow All allows you to select a Twitter list and follow all the members of
+that list.
 
 [travis]: http://travis-ci.org/codeforamerica/follow-all
 [gemnasium]: https://gemnasium.com/codeforamerica/follow-all

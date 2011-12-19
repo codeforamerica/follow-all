@@ -1,16 +1,42 @@
 !!! 5
 %html
   %head
+    %meta{:charset => "utf-8"}
+    %link{:rel => "shortcut icon", :href => "/favicon.ico"}
     %title
       Follow All
     = stylesheet_link_tag "application"
     = csrf_meta_tags
   %body
-    - if flash[:notice]
-      %p{:id => "notice"}
-        = flash[:notice]
-    - if flash[:error]
-      %p{:id => "error"}
-        = flash[:error]
-    = image_tag("code-for-america.png", :alt => "Code for America")
-    = yield
+    %a{:href => "https://github.com/sferik/sign-in-with-twitter"}
+      = image_tag("fork-me-on-github.png", :alt => "Fork me on GitHub", :style => "position: absolute; top: 0; right: 0; border: 0; z-index: 10001;")
+    .topbar
+      .fill
+        .container
+          = link_to(image_tag("code-for-america.png", :alt => "Code for America"), "http://codeforamerica.org/", :class => "brand")
+          %ul.nav
+            %li
+              %a{:href => "http://travis-ci.org/codeforamerica/follow-all"}
+                Build Status
+            %li
+              %a{:href => "https://gemnasium.com/codeforamerica/follow-all"}
+                Dependency Status
+            %li
+              %a{:href => "https://github.com/codeforamerica/follow-all"}
+                Source Code
+    .container
+      - if flash[:notice]
+        .alert-message.warning
+          %p
+            = flash[:notice]
+      - if flash[:error]
+        .alert-message.error
+          %p
+            = flash[:error]
+      .content
+        = yield
+      %footer
+        %p
+          &copy;
+          = Date.today.year
+          Code for America.
