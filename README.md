@@ -1,19 +1,12 @@
-# Follow All
+# Follow All [![Build Status](https://secure.travis-ci.org/codeforamerica/follow-all.png?branch=master)][travis] [![Dependency Status](https://gemnasium.com/codeforamerica/follow-all.png?travis)][gemnasium]
 Follow All allows you to enter the name of any public Twitter list and follow
 all the members of that list.
 
+[travis]: http://travis-ci.org/codeforamerica/follow-all
+[gemnasium]: https://gemnasium.com/codeforamerica/follow-all
+
 ## <a name="screenshots"></a>Screenshot
 ![Follow All](https://github.com/codeforamerica/follow-all/raw/master/screenshot.png "Follow All")
-
-## <a name="build"></a>Build Status
-[![Build Status](https://secure.travis-ci.org/codeforamerica/follow-all.png?branch=master)][travis]
-
-[travis]: http://travis-ci.org/codeforamerica/follow-all
-
-## <a name="dependencies"></a>Dependency Status
-[![Dependency Status](https://gemnasium.com/codeforamerica/follow-all.png?travis)][gemnasium]
-
-[gemnasium]: https://gemnasium.com/codeforamerica/follow-all
 
 ## <a name="demo"></a>Demo
 You can see a running version of the application at
