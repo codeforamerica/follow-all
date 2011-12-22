@@ -6,10 +6,15 @@ class FollowsControllerTest < ActionController::TestCase
     session[:access_secret] = '123'
     stub_request(:get, 'https://api.twitter.com/1/account/verify_credentials.json').
       to_return(:body => File.read(File.expand_path('../../fixtures/user.json', __FILE__)), :status => 200)
-    stub_request(:get, "https://api.twitter.com/1/users/show.json?screen_name=sferik").
+    stub_request(:get, "https://api.twitter.com/1/users/show.json").
+      with(:query => {:screen_name => "sferik"}).
       to_return(:body => File.read(File.expand_path('../../fixtures/user.json', __FILE__)), :status => 200)
-    stub_request(:get, "https://api.twitter.com/1/lists/members.json?cursor=-1&owner_screen_name=codeforamerica&slug=team").
+    stub_request(:get, "https://api.twitter.com/1/lists/members.json").
+      with(:query => {:cursor => "-1", :owner_screen_name => "codeforamerica", :slug => "team", :skip_status => "true", :include_entities => "false"}).
       to_return(:body => File.read(File.expand_path('../../fixtures/members.json', __FILE__)), :status => 200)
+    stub_request(:get, "https://api.twitter.com/1/friends/ids.json").
+      with(:query => {:cursor => "-1"}).
+      to_return(:body => File.read(File.expand_path('../../fixtures/friend_ids.json', __FILE__)), :status => 200)
     stub_request(:post, "https://api.twitter.com/1/friendships/create.json").
       to_return(:body => File.read(File.expand_path('../../fixtures/user.json', __FILE__)), :status => 200)
     post :create, :list => "codeforamerica/team"
