@@ -11,6 +11,6 @@
         Select a Twitter list:
       = select_tag('list', options_for_select(lists))
       %button.btn
-        Follow all members of this list!
-      %small
-        Note: This may take a few seconds to process.
+        = t("button.follow_all")
+      %p.help-block
+        = t("help.please_wait")

@@ -1,12 +1,12 @@
 .page-header
   %h1
-    Follow All
+    = t("app.name")
   %h6
-    Follow all the members of a Twitter list with a single click
+    = t("app.description")
 .row
   .span14
     = form_tag "/auth/twitter", :method => 'get' do
       %button.btn.large.primary
-        Sign in with Twitter
-      %small
-        Start by pressing this button to authenticate with Twitter.
+        = t("button.sign_in")
+      %p.help-block
+        = t("help.sign_in")

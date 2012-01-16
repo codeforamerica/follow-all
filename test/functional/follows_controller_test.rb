@@ -23,7 +23,7 @@ class FollowsControllerTest < ActionController::TestCase
     assert_equal 'You are now following 20 new people.', flash[:notice]
     assert_response :success
     assert_select 'title', 'Follow All'
-    assert_select 'ul.media-grid li', :count => 20
+    assert_select 'ul.thumbnails li', :count => 20
     assert_select 'form' do
       assert_select '[action=?]', '/follows'
       assert_select '[method=?]', 'post'

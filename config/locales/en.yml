@@ -1,5 +1,16 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
-  hello: "Hello world"
+  app:
+    description: "Follow all the members of a Twitter list with a single click"
+    name: "Follow All"
+    org: "Code for America"
+  button:
+    follow_all: "Follow all members of this list!"
+    sign_in: "Sign in with Twitter"
+  help:
+    please_wait: "Note: This may take a few seconds to process."
+    sign_in: "Start by pressing this button to authenticate with Twitter."
+  nav:
+    build_status: "Build Status"
+    dependency_status: "Dependency Status"
+    source_code: "Source Code"
+    sash: "Fork me on GitHub"
