@@ -1,15 +1,15 @@
 .row
   .span14
     - if @new_friends && @new_friends.size > 0
-      %ul.media-grid
+      %ul.thumbnails
         - @new_friends.each do |friend|
           %li
-            %a{:href => friend.url}
-              %img.thumbnail{:src => "https://api.twitter.com/1/users/profile_image?screen_name=#{friend.screen_name}&size=bigger", :alt => friend.name}
-    = form_tag('/follows', :method => 'post') do
+            %a.thumbnail{:href => friend.url}
+              %img{:src => "https://api.twitter.com/1/users/profile_image?screen_name=#{friend.screen_name}&size=bigger", :alt => friend.name}
+    = form_tag('/follows', :method => 'post', :class => "inline-form") do
       %p
         Select a Twitter list:
-      = select_tag('list', options_for_select([['codeforamerica/team','codeforamerica/team'],['codeforamerica/fellows-2012', 'codeforamerica/fellows-2012'],['codeforamerica/fellows-2011', 'codeforamerica/fellows-2011'],['codeforamerica/staff','codeforamerica/staff'],]))
+      = select_tag('list', options_for_select(lists))
       %button.btn
         Follow all members of this list!
       %small
