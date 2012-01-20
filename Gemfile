@@ -7,10 +7,6 @@ gem 'omniauth', :git => 'git://github.com/intridea/omniauth.git', :ref => '50c35
 gem 'omniauth-twitter'
 gem 'twitter'
 
-platforms :jruby do
-  gem 'jruby-openssl'
-end
-
 group :assets do
   gem 'sass-rails'
   gem 'uglifier'
