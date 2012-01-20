@@ -67,7 +67,7 @@ footer {
   width: 90px;
 }
 
-.alert-message {
+.alert {
   -webkit-border-top-left-radius: 0;
       -moz-border-radius-topleft: 0;
           border-top-left-radius: 0;
