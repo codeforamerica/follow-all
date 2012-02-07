@@ -1,16 +1,21 @@
 .row
-  .span14
+  .span12
     - if @new_friends && @new_friends.size > 0
       %ul.thumbnails
         - @new_friends.each do |friend|
           %li
             %a.thumbnail{:href => friend.url}
               %img{:src => "https://api.twitter.com/1/users/profile_image?screen_name=#{friend.screen_name}&size=bigger", :alt => friend.name}
-    = form_tag('/follows', :method => 'post', :class => "inline-form") do
-      %p
-        Select a Twitter list:
-      = select_tag('list', options_for_select(lists))
-      %button.btn.primary
-        = t("button.follow_all")
-      %p.help-block
-        = t("help.please_wait")
+    = form_tag('/follows', :method => "post", :class => "form-horizontal") do
+      %fieldset
+        %legend
+        .control-group
+          %label.control-label
+            Select a Twitter list:
+          .controls
+            = select_tag('list', options_for_select(lists))
+        .form-actions
+          %button.btn.btn-large.btn-primary
+            = t("button.follow_all")
+          %p.help-block
+            = t("help.please_wait")

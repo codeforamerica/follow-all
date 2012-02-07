@@ -1,12 +1,11 @@
-.page-header
-  %h1
-    = t("app.name")
-  %h6
-    = t("app.description")
 .row
-  .span14
-    = form_tag "/auth/twitter", :method => 'get' do
-      %button.btn.large.primary
-        = t("button.sign_in")
-      %p.help-block
-        = t("help.sign_in")
+  .span12
+    = form_tag "/auth/twitter", :method => "get", :html => {:class => "form-horizontal"} do
+      %fieldset
+        %legend
+          = t("app.description")
+        .form-actions
+          %button.btn.btn-large.btn-primary
+            = t("button.sign_in")
+          %p.help-block
+            = t("help.sign_in")
