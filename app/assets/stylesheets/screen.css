@@ -18,6 +18,10 @@ footer {
   z-index: 10001;
 }
 
+.navbar .brand {
+  padding-top: 4px;
+}
+
 .container > footer p {
   text-align: center; /* center align it with the container */
 }
