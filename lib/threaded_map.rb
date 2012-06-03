@@ -1,11 +1,11 @@
 module Enumerable
+
   def threaded_map
-    results = map{nil}
-    ts = []
-    each_with_index do |obj,i|
-      ts << Thread::new{results[i] = yield obj}
+    threads = []
+    each do |object|
+      threads << Thread.new{yield object}
     end
-    ts.each &:join
-    results
+    threads.map(&:value)
   end
+
 end
