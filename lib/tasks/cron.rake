@@ -5,7 +5,7 @@ logger = Logger.new(STDOUT)
 logger.level = Logger::DEBUG
 
 desc "Automatically merge the staff and fellows Twitter lists into the team list"
-task :cron => :environment do
+task cron: :environment do
   Twitter.configure do |config|
     config.consumer_key = ENV['CONSUMER_KEY']
     config.consumer_secret = ENV['CONSUMER_SECRET']
@@ -18,7 +18,7 @@ task :cron => :environment do
   ["bod", "staff", "fellows-#{Time.now.year}"].each do |list|
     cursor = -1
     until cursor == 0
-      list_members = client.list_members(user, list, :cursor => cursor)
+      list_members = client.list_members(user, list, cursor: cursor)
       list_members.users.threaded_map do |list_member|
         begin
           if client.is_list_member?(user, "team", list_member.id)
