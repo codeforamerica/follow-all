@@ -15,6 +15,9 @@ class FollowsControllerTest < ActionController::TestCase
     stub_request(:get, "https://api.twitter.com/1/friends/ids.json").
       with(query: {cursor: "-1"}).
       to_return(body: File.read(File.expand_path('../../fixtures/friend_ids.json', __FILE__)))
+    stub_request(:get, "https://api.twitter.com/1/users/lookup.json").
+      with(query: {user_id: "30794335,200019112,15335145,12513,15784319,2384071,15101375,14239131,74543,15209501,15866539,23828637,16222728,211580914,51764038,21076132,21866144,23242128,823408,15978771"}).
+      to_return(body: File.read(File.expand_path('../../fixtures/users.json', __FILE__)))
     stub_request(:post, "https://api.twitter.com/1/friendships/create.json").
       to_return(body: File.read(File.expand_path('../../fixtures/user.json', __FILE__)))
     post :create, list: "codeforamerica/team"

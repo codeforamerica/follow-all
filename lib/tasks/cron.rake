@@ -1,5 +1,4 @@
 require 'twitter'
-require 'threaded_map'
 require 'logger'
 logger = Logger.new(STDOUT)
 logger.level = Logger::DEBUG
@@ -19,7 +18,7 @@ task cron: :environment do
     cursor = -1
     until cursor == 0
       list_members = client.list_members(user, list, cursor: cursor)
-      list_members.users.threaded_map do |list_member|
+      list_members.users.each do |list_member|
         begin
           if client.is_list_member?(user, "team", list_member.id)
             logger.debug "Skipping #{list_member.name} (id: #{list_member.id})"
