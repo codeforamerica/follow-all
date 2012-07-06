@@ -6,7 +6,7 @@ gem 'rails', '~> 3.2'
 gem 'haml', '~> 3.2.0.beta'
 gem 'omniauth'
 gem 'omniauth-twitter'
-gem 'twitter', '~> 3.0.0'
+gem 'twitter'
 
 group :assets do
   gem 'sass-rails'
