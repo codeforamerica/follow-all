@@ -1,0 +1,10 @@
+- if flash[:notice]
+  .alert
+    %a{:class => "close", :"data-dismiss" => "alert", :href => "#"}
+      &times;
+    = flash[:notice]
+- if flash[:error]
+  .alert.alert-error
+    %a{:class => "close", :"data-dismiss" => "alert", :href => "#"}
+      &times;
+    = flash[:error]

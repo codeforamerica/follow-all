@@ -1,58 +1,17 @@
 !!! 5
-%html
+
+-# <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+-# <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+-# <!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+-# <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+%html.no-js
   %head
-    %meta{:charset => "utf-8"}
-    %meta{:name => "author", :content => t("app.org")}
-    %meta{:name => "description", :content => t("app.description")}
-    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
-    = csrf_meta_tags
-    %link{:rel => "shortcut icon", :href => "/favicon.ico"}
-    / HTML5 shim, for IE6-8 support of HTML5 elements
-    /[if lt IE 9]
-      = javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js"
-    %title
-      = t("app.name")
-    = stylesheet_link_tag "application"
-    = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
-    = javascript_include_tag "application"
+    = render "layouts/head"
   %body
-    %a.sash{:href => "https://github.com/sferik/sign-in-with-twitter"}
-      = image_tag("fork-me-on-github.png", :alt => t("nav.sash"), :id => "sash")
-    .navbar.navbar-fixed-top.navbar-inverse
-      .navbar-inner
-        .container
-          %a.btn.btn-navbar{:"data-toggle" => "collapse", :"data-target" => ".nav-collapse"}
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          = link_to(image_tag("code-for-america.png", :alt => t("app.org")), "http://codeforamerica.org/", :class => "brand")
-          .nav-collapse
-            %ul.nav
-              %li
-                %a{:href => "http://travis-ci.org/codeforamerica/follow-all"}
-                  = t("nav.build_status")
-              %li
-                %a{:href => "https://gemnasium.com/codeforamerica/follow-all"}
-                  = t("nav.dependency_status")
-              %li
-                %a{:href => "https://github.com/codeforamerica/follow-all"}
-                  = t("nav.source_code")
-    .container
-      - if flash[:notice]
-        .alert
-          %a{:class => "close", :"data-dismiss" => "alert", :href => "#"}
-            &times;
-          = flash[:notice]
-        :javascript
-          $(".alert").alert();
-      - if flash[:error]
-        .alert.alert-error
-          %a{:class => "close", :"data-dismiss" => "alert", :href => "#"}
-            &times;
-          = flash[:error]
-        :javascript
-          $(".alert").alert();
-      = yield
-      %footer
-        %p
-          = "&copy; #{Date.today.year} #{t("app.org")}.".html_safe
+    = render "layouts/github_sash"
+    = render "layouts/header"
+    = render "layouts/flashes"
+    = render "layouts/main"
+    = render "layouts/footer"
+    = render "layouts/javascripts"
