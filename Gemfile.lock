@@ -33,6 +33,13 @@ GEM
     bootstrap-sass (2.2.2.0)
       sass (~> 3.2)
     builder (3.0.4)
+    coffee-rails (3.2.2)
+      coffee-script (>= 2.2.0)
+      railties (~> 3.2.0)
+    coffee-script (2.2.0)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.4.0)
     crack (0.3.1)
     erubis (2.7.0)
     execjs (1.4.0)
@@ -131,6 +138,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass (~> 2.2.2.0)
+  coffee-rails
   haml (~> 3.2.0.beta)
   mocha
   omniauth
