@@ -46,7 +46,7 @@ GEM
       multi_json (~> 1.0)
     faraday (0.8.5)
       multipart-post (~> 1.1)
-    haml (4.0.0.rc.1)
+    haml (4.0.0)
       tilt
     hashie (1.2.0)
     hike (1.2.1)
@@ -137,9 +137,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-sass (~> 2.2.2.0)
+  bootstrap-sass
   coffee-rails
-  haml (~> 4.0.0.rc)
+  haml
   mocha
   omniauth
   omniauth-twitter
