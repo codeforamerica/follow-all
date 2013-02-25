@@ -39,7 +39,7 @@ GEM
     coffee-script (2.2.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.4.0)
+    coffee-script-source (1.5.0)
     crack (0.3.2)
     erubis (2.7.0)
     execjs (1.4.0)
