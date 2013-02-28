@@ -1,8 +1,14 @@
-# Follow All [![Build Status](https://secure.travis-ci.org/codeforamerica/follow-all.png?branch=master)][travis] [![Dependency Status](https://gemnasium.com/codeforamerica/follow-all.png?travis)][gemnasium]
-Follow All allows you to select a Twitter list and follow all of its members.
+# Follow All
+
+[![Build Status](https://secure.travis-ci.org/codeforamerica/follow-all.png?branch=master)][travis]
+[![Dependency Status](https://gemnasium.com/codeforamerica/follow-all.png?travis)][gemnasium]
+[![Coverage Status](https://coveralls.io/repos/codeforamerica/follow-all/badge.png?branch=master)][coveralls]
 
 [travis]: http://travis-ci.org/codeforamerica/follow-all
 [gemnasium]: https://gemnasium.com/codeforamerica/follow-all
+[coveralls]: https://coveralls.io/r/codeforamerica/follow-all
+
+Follow All allows you to select a Twitter list and follow all of its members.
 
 ## Screenshot
 ![Follow All](https://github.com/codeforamerica/follow-all/raw/master/screenshot.png "Follow All")
