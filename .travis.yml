@@ -1,5 +1,15 @@
+---
 before_install: gem install bundler --pre
 bundler_args: --without production
 language: ruby
 rvm:
-  - 2.0.0
+- 2.0.0
+deploy:
+  api_key:
+    secure: |-
+      Uyzc8wJa/E2mEh47Yxlv2robX8guaqS7QfeGi+30TfOFCJAK6m1rqCqJEU1y
+      uVD6tmRdxnr/ZoVfrrWQssm/OAc3eDlpVr1AKMTgxSDQetzUCaJY3UD+zhyH
+      C/9VYGK0KxbTpnYBQ6F2Vqv/k/QuNqugdsdED0xH8CKSQ1qv5MM=
+  on:
+    rvm: 2.0.0
+  provider: heroku
