@@ -12,13 +12,13 @@ class User
     cursor = -1
     until cursor == 0
       list_members = client.list_members(user, list, cursor: cursor, skip_status: true, include_entities: false)
-      users_to_follow += list_members.users
+      users_to_follow += list_members.to_a
       cursor = list_members.next_cursor
     end
 
     begin
       client.follow(users_to_follow)
-    rescue Twitter::Error::ServerError
+    rescue Twitter::Error
       # This error will be raised if Twitter is temporarily unavailable.
       retry
     end

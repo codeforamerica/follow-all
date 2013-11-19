@@ -5,13 +5,12 @@ logger.level = Logger::DEBUG
 
 desc "Automatically merge the staff and fellows Twitter lists into the team list"
 task cron: :environment do
-  Twitter.configure do |config|
+  client = Twitter::REST::Client.new do |config|
     config.consumer_key = ENV['CONSUMER_KEY']
     config.consumer_secret = ENV['CONSUMER_SECRET']
     config.oauth_token = ENV['OAUTH_TOKEN']
     config.oauth_token_secret = ENV['OAUTH_TOKEN_SECRET']
   end
-  client = Twitter::Client.new
 
   user = 'codeforamerica'
   ["bod", "staff", "fellows-#{Time.now.year}"].each do |list|
