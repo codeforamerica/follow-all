@@ -167,7 +167,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-sass
+  bootstrap-sass (~> 2.0)
   coffee-rails
   coveralls
   haml
