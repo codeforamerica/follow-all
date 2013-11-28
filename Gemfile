@@ -6,6 +6,7 @@ gem 'bootstrap-sass', '~> 2.0'
 gem 'haml'
 gem 'omniauth'
 gem 'omniauth-twitter'
+gem 'rails_12factor'
 gem 'twitter'
 
 group :assets do
