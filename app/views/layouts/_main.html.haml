@@ -1,1 +1,3 @@
-#main.container{ :role => "main" }= yield
+#main.container{ :role => "main" }
+  = render "layouts/flashes"
+  = yield
