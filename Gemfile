@@ -19,6 +19,10 @@ group :production do
   gem 'puma'
 end
 
+group :development do
+  gem 'debugger'
+end
+
 group :test do
   gem 'coveralls', :require => false
   gem 'mocha', :require => false
