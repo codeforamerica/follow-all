@@ -8,18 +8,20 @@ class User
   end
 
   def follow_list(user, list)
-    users_to_follow = []
-    cursor = -1
-    until cursor == 0
-      list_members = client.list_members(user, list, :cursor => cursor, :skip_status => true, :include_entities => false)
-      users_to_follow += list_members.to_a
-      cursor = list_members.next_cursor
-    end
-
+    users_to_follow = client.list_members(user, list, :skip_status => true, :include_entities => false).to_a
+    num_attempts = 0
     begin
+      num_attempts += 1
       client.follow(users_to_follow)
+    rescue Twitter::Error::TooManyRequests => error
+      if num_attempts <= 3
+        sleep error.rate_limit.reset_in
+        retry
+      else
+        raise
+      end
     rescue Twitter::Error
-      # This error will be raised if Twitter is temporarily unavailable.
+      sleep 1
       retry
     end
   end
