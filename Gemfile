@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+ruby '2.1.0'
 
 gem 'rails',          '~> 4.0.1'
 gem 'bootstrap-sass', '~> 2.0'
@@ -17,10 +17,6 @@ end
 
 group :production do
   gem 'puma'
-end
-
-group :development do
-  gem 'debugger'
 end
 
 group :test do
