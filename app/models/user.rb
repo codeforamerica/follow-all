@@ -4,7 +4,7 @@ class User
   end
 
   def follow_list(user, list)
-    users_to_follow = @client.list_members(user, list, :skip_status => true, :include_entities => false).to_a
+    users_to_follow = @client.list_members(user, list, skip_status: true, include_entities: false).to_a
     num_attempts = 0
     begin
       num_attempts += 1

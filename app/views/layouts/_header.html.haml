@@ -5,15 +5,15 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      = link_to(image_tag("code-for-america.png", :alt => t("app.org")), "http://codeforamerica.org/", :class => "brand")
+      = link_to(image_tag("code-for-america.png", alt: t("app.org")), "http://codeforamerica.org/", class: "brand")
       .nav-collapse
         %ul.nav
           %li
-            %a{:href => "http://travis-ci.org/codeforamerica/follow-all"}
+            %a{href: "http://travis-ci.org/codeforamerica/follow-all"}
               = t("nav.build_status")
           %li
-            %a{:href => "https://gemnasium.com/codeforamerica/follow-all"}
+            %a{href: "https://gemnasium.com/codeforamerica/follow-all"}
               = t("nav.dependency_status")
           %li
-            %a{:href => "https://github.com/codeforamerica/follow-all"}
+            %a{href: "https://github.com/codeforamerica/follow-all"}
               = t("nav.source_code")
