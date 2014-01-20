@@ -4,8 +4,8 @@
       %ul.thumbnails
         - @new_friends.each do |friend|
           %li
-            %a.thumbnail{href: "https://twitter.com/#{friend.screen_name}"}
-              %img{src: "https://api.twitter.com/1/users/profile_image?screen_name=#{friend.screen_name}&size=bigger", alt: friend.name}
+            %a.thumbnail{href: friend.uri}
+              %img{src: friend.profile_image_uri_https(:bigger), alt: friend.name}
     = form_tag('/follows', method: 'post', class: 'form-horizontal') do
       %fieldset
         %legend
