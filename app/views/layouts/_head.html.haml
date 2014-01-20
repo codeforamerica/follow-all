@@ -1,16 +1,15 @@
-%meta{charset: "utf-8"}
+%meta{charset: 'utf-8'}
 
-%title= t("app.name")
+%title= t('app.name')
 
-%meta{name: "author", content: t("app.org") }
-%meta{name: "description", content: t("app.description") }
-%meta{name: "viewport", content: "width=device-width, initial-scale=1.0" }
+%meta{name: 'author', content: t('app.org') }
+%meta{name: 'description', content: t('app.description') }
+%meta{name: 'viewport', content: 'width=device-width, initial-scale=1.0' }
 
+%link{rel: 'shortcut icon', href: '/favicon.ico'}
 
-%link{rel: "shortcut icon", href: "/favicon.ico"}
+= render 'layouts/stylesheets'
 
-= render "layouts/stylesheets"
-
-= javascript_include_tag "polyfills"
+= javascript_include_tag 'polyfills'
 
 = csrf_meta_tags
