@@ -26,12 +26,16 @@ You can see a running version of the application at
 
 ## Usage
 Running your own instance of Follow All requires you to [register an app with
-Twitter][apps] to obtain OAuth credentials. After you register your app, go to the "Settings" tab, set a Callback URL in the "Application Type" section, and click "Update this Twitter application's settings." It doesn't matter what the URL is, as long as one is set.
+Twitter][apps] to obtain OAuth credentials. After you register your app, go to
+the "Settings" tab, set a Callback URL in the "Application Type" section, and
+click "Update this Twitter application's settings." It doesn't matter what the
+URL is, as long as one is set.
 
-![Twitter app callback URL](http://cl.ly/image/2R093y1m4208/Image%202014-01-25%20at%207.04.18%20PM.png)
+![Twitter app callback URL](https://github.com/codeforamerica/follow-all/raw/master/twitter-screenshot.png)
 
-Once you obtain credentials,
-substitute your consumer key and secret into the command below. You can find your consumer key and secret in your Twitter app's "Details" tab in the "OAuth settings" section.
+Once you obtain credentials, substitute your consumer key and secret into the
+command below. You can find your consumer key and secret in your Twitter app's
+"Details" tab in the "OAuth settings" section.
 
 [apps]: http://dev.twitter.com/apps
 
