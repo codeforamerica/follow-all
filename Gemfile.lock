@@ -163,7 +163,7 @@ GEM
     uglifier (2.4.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-    webmock (1.17.2)
+    webmock (1.17.3)
       addressable (>= 2.2.7)
       crack (>= 0.3.2)
 
