@@ -1,8 +1,8 @@
 # Follow All
 
-[![Build Status](https://secure.travis-ci.org/codeforamerica/follow-all.png?branch=master)][travis]
-[![Dependency Status](https://gemnasium.com/codeforamerica/follow-all.png?travis)][gemnasium]
-[![Coverage Status](https://coveralls.io/repos/codeforamerica/follow-all/badge.png?branch=master)][coveralls]
+[![Build Status](http://img.shields.io/travis/codeforamerica/follow-all.svg)][travis]
+[![Dependency Status](http://img.shields.io/gemnasium/codeforamerica/follow-all.svg)][gemnasium]
+[![Coverage Status](http://img.shields.io/coveralls/codeforamerica/follow-all.svg)][coveralls]
 
 [travis]: http://travis-ci.org/codeforamerica/follow-all
 [gemnasium]: https://gemnasium.com/codeforamerica/follow-all
