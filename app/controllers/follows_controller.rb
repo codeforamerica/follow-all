@@ -1,5 +1,5 @@
 class FollowsController < ApplicationController
-  def create
+  def create # rubocop:disable MethodLength
     if session['access_token'] && session['access_secret']
       begin
         @user = User.new(client)
