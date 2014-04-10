@@ -1,6 +1,6 @@
 class FollowsController < ApplicationController
   def create # rubocop:disable MethodLength
-    if session['access_token'] && session['access_secret']
+    if session['access_token'] && session['access_token_secret']
       begin
         @user = User.new(client)
         @new_friends = @user.follow_list(*params[:list].split('/'))
