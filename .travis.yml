@@ -1,7 +1,14 @@
----
-bundler_args: --without production
+bundler_args: "--without production"
 cache: bundler
 language: ruby
 rvm:
-  - 2.2
+- 2.2
 sudo: false
+deploy:
+  api_key:
+    secure: ZNNvpV3/UDY6WS0AY/NJF/QktQ6tfGLJ1Gkt9gR59IaiAkqHkhb8VYMhuCFe7V6afAkWi5pN3k/eMSiMe9HaIbiMAsYSKfwMZs9ezXF/p5527SLK5N7B2epIKfO5h+Jwz/27gO+TeUD/B1JWvY7hwP/WxX3DFT/rkIxZ52Jo5PY=
+  app: follow-all
+  on:
+    repo: codeforamerica/follow-all
+  provider: heroku
+  strategy: git
