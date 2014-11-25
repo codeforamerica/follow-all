@@ -35,7 +35,7 @@ URL is, as long as one is set.
 
 Once you obtain credentials, substitute your consumer key and secret into the
 command below. You can find your consumer key and secret in your Twitter app's
-"Details" tab in the "OAuth settings" section.
+"Keys and Access Tokens" section.
 
 [apps]: http://dev.twitter.com/apps
 
