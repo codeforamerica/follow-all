@@ -6,6 +6,8 @@ en:
   button:
     follow_all: "Follow all members of this list!"
     sign_in: "Sign in with Twitter"
+  control:
+    select_list: "Select a Twitter list:"
   help:
     please_wait: "Note: This may take a few seconds to process."
     sign_in: "Start by pressing this button to authenticate with Twitter."
