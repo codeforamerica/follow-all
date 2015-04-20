@@ -1,26 +1,25 @@
 class FollowsController < ApplicationController
+  before_action :ensure_authenticated
+
   def create
-    if session['access_token'] && session['access_token_secret']
-      set_flash
-      render 'sessions/show'
-    else
-      redirect_to failure_path
-    end
+    @user = User.new(client)
+    @new_friends = @user.follow_list(*params[:list].split('/'))
+    flash.now[:notice] = flash_message(@new_friends.size)
+    render 'sessions/show'
   end
 
 private
 
-  def set_flash
-    @user = User.new(client)
-    @new_friends = @user.follow_list(*params[:list].split('/'))
-    if @new_friends.size.zero?
-      flash.now[:notice] = 'You are already following everyone on this list.'
-    elsif @new_friends.size == 1
-      flash.now[:notice] = 'You are now following 1 new person.'
+  def flash_message(number)
+    case number
+    when 0
+      'You are already following everyone on this list.'
+    when 1
+      'You are now following 1 new person.'
     else
-      flash.now[:notice] = "You are now following #{@new_friends.size} new people."
+      "You are now following #{number} new people."
     end
-  rescue Twitter::Error::BadRequest
-    flash.now[:notice] = 'You have been rate-limited by Twitter. Please try again in an hour.'
+  rescue Twitter::Error::TooManyRequests
+    'You have been rate-limited by Twitter. Please try again in an hour.'
   end
 end

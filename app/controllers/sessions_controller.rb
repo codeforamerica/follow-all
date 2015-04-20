@@ -1,16 +1,15 @@
 class SessionsController < ApplicationController
+  before_action :ensure_authenticated, only: :show
+
   def create
-    session[:access_token] = request.env['omniauth.auth']['credentials']['token']
-    session[:access_token_secret] = request.env['omniauth.auth']['credentials']['secret']
+    credentials = request.env['omniauth.auth']['credentials']
+    session[:access_token] = credentials['token']
+    session[:access_token_secret] = credentials['secret']
     redirect_to show_path, notice: 'Signed in'
   end
 
   def show
-    if session['access_token'] && session['access_token_secret']
-      @user = client.user(include_entities: true)
-    else
-      redirect_to failure_path
-    end
+    @user = client.user(include_entities: true)
   end
 
   def error

@@ -5,7 +5,7 @@ module SessionsHelper
     list_owner = 'codeforamerica'
     lists = []
     lists << 'team'
-    (FIRST_YEAR..Date.today.year).each do |year|
+    (FIRST_YEAR..Time.zone.now.year).each do |year|
       lists << "fellows-#{year}"
     end
     lists << 'staff'
