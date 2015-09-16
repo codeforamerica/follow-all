@@ -86,9 +86,9 @@ Ideally, a bug report should include a pull request with failing specs.
 8. Add, commit, and push your changes.
 9. [Submit a pull request.][pr]
 
-[fork]: http://help.github.com/fork-a-repo/
-[branch]: http://learn.github.com/p/branching.html
-[pr]: http://help.github.com/send-pull-requests/
+[fork]: https://help.github.com/articles/fork-a-repo/
+[branch]: https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/
+[pr]: https://help.github.com/articles/using-pull-requests/
 
 ## Supported Ruby Version
 This library aims to support and is [tested against][travis] Ruby version 1.9.3.
@@ -106,7 +106,7 @@ timely fashion. If critical issues for a particular implementation exist at the
 time of a major release, support for that Ruby version may be dropped.
 
 ## Copyright
-Copyright (c) 2011 Code for America. See [LICENSE][] for details.
+Copyright 2015 by Code for America. All rights reserved. See [LICENSE][] for details.
 
 [license]: https://github.com/codeforamerica/follow-all/blob/master/LICENSE.md
 
