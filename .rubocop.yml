@@ -1,5 +1,4 @@
 AllCops:
-  RunRailsCops: true
   Exclude:
     - 'bin/*'
     - 'db/schema.rb'
@@ -7,6 +6,9 @@ AllCops:
 
 Metrics/BlockNesting:
   Max: 2
+
+Rails:
+  Enabled: true
 
 Metrics/LineLength:
   AllowURI: true
@@ -44,5 +46,5 @@ Style/DoubleNegation:
 Style/SpaceInsideHashLiteralBraces:
   EnforcedStyle: no_space
 
-Style/TrailingComma:
+Style/TrailingCommaInLiteral:
   EnforcedStyleForMultiline: 'comma'
