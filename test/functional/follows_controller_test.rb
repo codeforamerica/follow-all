@@ -21,6 +21,8 @@ class FollowsControllerTest < ActionController::TestCase
       to_return(body: File.read(File.expand_path('../../fixtures/users.json', __FILE__)))
     stub_request(:post, 'https://api.twitter.com/1.1/friendships/create.json').
       to_return(body: File.read(File.expand_path('../../fixtures/user.json', __FILE__)))
+    stub_request(:get, 'https://api.twitter.com/1.1/account/verify_credentials.json').
+      to_return(body: File.read(File.expand_path('../../fixtures/user.json', __FILE__)))
     post :create, list: 'codeforamerica/team'
     assert_not_nil assigns :user
     assert_not_nil assigns :new_friends
