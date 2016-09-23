@@ -15,7 +15,7 @@ task cron: :environment do
   user = 'codeforamerica'
   ['bod', 'staff', "fellows-#{Time.zone.now.year}"].each do |list|
     cursor = -1
-    until cursor == 0
+    until cursor.zero?
       list_members = client.list_members(user, list, cursor: cursor)
       list_members.users.each do |list_member|
         begin
